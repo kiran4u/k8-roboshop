@@ -11,6 +11,13 @@ spec:
   - name: web
     imagePullPolicy: Always
     image: kbachu/web:k8
+    resources:
+      requests:
+        cpu: "100M"
+        memory: "128Mi"
+      limits:
+        cpu: "100M"
+        memory: "128Mi"
     ports:
       - containerPort: 80
 
