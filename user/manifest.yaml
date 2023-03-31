@@ -20,8 +20,8 @@ spec:
     imagePullPolicy: Always
     image: kbachu/user:k8
     envFrom:
-      - configMapRef:
-        name: user-config
+    - configMapRef:
+       name: user-config
     resources:
       requests:
         cpu: "100m"

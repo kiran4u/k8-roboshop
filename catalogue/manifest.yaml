@@ -18,6 +18,9 @@ spec:
   - name: catalogue
     imagePullPolicy: Always
     image: kbachu/catalogue:k8
+     envFrom:
+       - configMapRef:
+          name: catalogue-config
     resources:
       requests:
         cpu: "100m"
