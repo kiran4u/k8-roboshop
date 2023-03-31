@@ -8,7 +8,7 @@ metadata:
     tier: db
 spec:
   containers:
-  - name: web
+  - name: mongodb
     imagePullPolicy: Always
     image: kbachu/mongodb:k8
     resources:
