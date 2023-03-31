@@ -14,8 +14,8 @@ metadata:
   name: mysql-secret
 type: Opaque
 data:
-  MYSQL_USER: "c2hpcHBpbmc="
-  MYSQL_PASSWORD: "c2VjcmV0"
+  MYSQL_USER: c2hpcHBpbmc=
+  MYSQL_PASSWORD: c2VjcmV0
 
 ---
 apiVersion: v1
