@@ -18,6 +18,9 @@ spec:
   - name: cart
     imagePullPolicy: Always
     image: kbachu/cart:k8
+    envFrom:
+    - configMapRef:
+        name: cart-config
     resources:
       requests:
         cpu: "100m"
