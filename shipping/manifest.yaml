@@ -1,42 +1,43 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: catalogue-config
+  name: shipping-config
 data:
-  MONGO_URL: "mongodb://mongodb-service:27017/catalogue"
+  CART_ENDPOINT: "cart"
+  DB_HOST: "mysql"
 
 ---
 apiVersion: v1
 kind: Pod
 metadata:
-  name: catalogue
+  name: shipping
   labels:
-    name: catalogue
+    name: shipping
     tier: app
 spec:
   containers:
-  - name: catalogue
+  - name: shipping
     imagePullPolicy: Always
-    image: kbachu/catalogue:k8
+    image: kbachu/shipping:k8
     envFrom:
     - configMapRef:
-        name: catalogue-config
+        name: shipping-config
     resources:
       requests:
-        cpu: "100m"
-        memory: "128Mi"
+        cpu: "200m"
+        memory: "256Mi"
       limits:
-        cpu: "100m"
-        memory: "128Mi"
+        cpu: "200m"
+        memory: "512Mi"
   
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: catalogue
+  name: shipping
 spec:
   selector: 
-    name: catalogue
+    name: shipping
     tier: app
   ports:
   - protocol: TCP

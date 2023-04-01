@@ -5,8 +5,7 @@ metadata:
   name: mysql-config
 data:
   MYSQL_DATABASE: "cities"
-  MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
- 
+  MYSQL_ALLOW_EMPTY_PASSWORD: "yes" 
 ---
 apiVersion : v1
 kind: Secret
@@ -17,7 +16,6 @@ data:
   MYSQL_USER: c2hpcHBpbmc=
   MYSQL_PASSWORD: c2VjcmV0
   
-
 ---
 apiVersion: v1
 kind: Pod
@@ -32,10 +30,10 @@ spec:
     imagePullPolicy: Always
     image: kbachu/mysql:k8
     envFrom:
-      - configMapRef:
-          name: mysql-config
-      - secretRef:
-          name: mysql-secret
+    - configMapRef:
+        name: mysql-config
+    - secretRef:
+        name: mysql-secret
     ports:
      - containerPort: 3306
   
